@@ -38,27 +38,6 @@ public class Torneo {
         }
     }
 
-    public void registrarPartidoVerificacion(Integer idPartido, Equipo local, Equipo visitante) throws GruposDistintosException, EquipoDuplicadoException, EquipoNoAgregadoException, PartidoJugadoException {
-        if(equipos.contains(local) && equipos.contains(visitante)){
-            if (!(local.equals(visitante))){
-                if (local.getGrupo().equals(visitante.getGrupo())){
-                    if (!(this.partidos.containsValue(local) && this.partidos.containsValue(visitante))) {
-                        Partido partido = new Partido(idPartido, local, visitante);
-                        this.partidos.put(idPartido, partido);
-                    } else {
-                        throw new PartidoJugadoException("El partido ya se habia jugado");
-                    }
-                } else {
-                    throw new GruposDistintosException("Los equipos no pertenecen al mismo grupo");
-                }
-            } else {
-                throw new EquipoDuplicadoException("El equipo ingresado es el mismo");
-            }
-        } else {
-            throw new EquipoNoAgregadoException("Se ingreso un equipo no clasificado");
-        }
-    }
-
     public Integer obtenerCantPartidos() { return this.partidos.size();}
 
     public void registrarResultado(Integer idPartido, Integer golesLocal, Integer golesVisitante) throws EquipoNoAgregadoException {

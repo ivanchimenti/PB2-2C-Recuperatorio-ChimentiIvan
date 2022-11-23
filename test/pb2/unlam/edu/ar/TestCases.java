@@ -162,12 +162,6 @@ public class TestCases {
         mundial.clasificacionEquipos();
     }
 
-    @Test (expected = PartidoJugadoException.class)
-    public void queAlCrearUnPartidoDondeLosEquiposYaJugaronSeLanceUnaException() throws PartidoJugadoException, EquipoDuplicadoException, EquipoNoAgregadoException, GruposDistintosException {
-        mundial.registrarPartidoVerificacion(1, catar, ecuador);
-        mundial.registrarPartidoVerificacion(2, ecuador, catar);
-    }
-
     @Test (expected = EquipoDuplicadoException.class)
     public void queAlCrearUnPartidoDondeElQuipoLocalEsElMismoQueElVisitanteSeLanceUnaException() throws EquipoDuplicadoException, EquipoNoAgregadoException, GruposDistintosException {
         mundial.registrarPartido(1, catar, catar);
